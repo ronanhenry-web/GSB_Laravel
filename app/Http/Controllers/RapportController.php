@@ -6,14 +6,19 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Models\Rapport;
 use App\Models\Praticien;
-use App\Models\Offrir;
+use Illuminate\Support\Facades\Auth;
 
 class RapportController extends Controller
 {
     // Rapport
     public function liste()
     {
-        $rapports = Rapport::all();
+        //requete pour recup rapport du user actif et pas les autres
+        // https://stackoverflow.com/questions/41621486/laravel-inner-join
+        $id = Auth::user()->VIS_MATRICULE;
+        $rapports = Rapport::join('praticien', 'rapport_visite.PRA_NUM', '=', 'praticien.PRA_NUM')
+            ->where('rapport_visite.VIS_MATRICULE', $id)
+            ->get();
         
         return view("rapport", ["rapports" => $rapports]);
     }
@@ -21,10 +26,7 @@ class RapportController extends Controller
     // PraticienRapport
     public function rapportPraticien()
     {
-        //requete pour recup rapport du user actif et pas les autres
-        // $praticiens = Praticien::find(auth()->id());
-        $praticiens = Praticien::Auth(user()->id());
-        // $praticiens = Praticien::all();
+        $praticiens = Praticien::all();
         
         return view("nouveauRapport", ["praticiens" => $praticiens]);
     }

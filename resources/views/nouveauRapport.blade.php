@@ -20,7 +20,7 @@
                                             <input type="number" class="form-control" name="num" required>
                                         </div>
                                         <br>
-                                        <div class="mb-3" style="background-color: grey; margin-right: 733px; padding-left: 5px;">  
+                                        <div class="mb-3" style="background-color: grey; margin-right: 716px; padding-left: 5px;">  
                                             <label for="exampleInputEmail1" class="form-label">Numéro du praticien :</label>
                                             <select name="praticien">
                                                 @foreach ($praticiens as $info)

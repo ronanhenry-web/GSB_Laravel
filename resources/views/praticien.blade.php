@@ -21,11 +21,6 @@
                         <br>
                         <br>
                         <div class="mb-3" style="margin-left: 25%;">  
-                            <label for="exampleInputEmail1" class="form-label"><strong>Numéro praticien :</strong></label>
-                        </div>
-                        <p style="background-color: rgb(0, 119, 255); margin-left: 25%; margin-right: 25%;">→ {{ $praticien->PRA_NUM }}</p>
-
-                        <div class="mb-3" style="margin-left: 25%;">  
                             <label for="exampleInputEmail1" class="form-label"><strong>Nom du praticien :</strong></label>
                         </div>
                         <p style="background-color: rgb(0, 119, 255); margin-left: 25%; margin-right: 25%;">→ {{ $praticien->PRA_NOM }}</p>

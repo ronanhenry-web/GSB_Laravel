@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Histoire de l entreprise GSB') }}
+            {{ __('Histoire de l\'entreprise GSB') }}
         </h2>
     </x-slot>
 
@@ -16,7 +16,7 @@
                 <br>
                 <br>
                 <br>
-                <p>Le laboratoire Galaxy Swiss Bourdin (GSB) est issu de la fusion entre le géant 
+                <p class="p-6">Le laboratoire Galaxy Swiss Bourdin (GSB) est issu de la fusion entre le géant 
                     américain Galaxy (spécialisé dans le secteur des maladies virales dont le SIDA 
                     et les hépatites) et le conglomérat européen Swiss Bourdin (travaillant sur 
                     des médicaments plus conventionnels), lui-même déjà union de trois petits 

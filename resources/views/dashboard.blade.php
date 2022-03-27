@@ -22,13 +22,13 @@
                     Le siège social de la multinationale est situé à Philadelphie, Pennsylvanie, 
                     aux Etats-Unis.</p>
                     <ul class="steps mt-4">
-                        <li class="step step-neutral">Step 1</li>
-                        <li class="step step-neutral">Step 2</li>
-                        <li class="step step-neutral">Step 3</li>
-                        <li class="step step-neutral">Step 4</li>
-                        <li class="step step-neutral">Step 5</li>
-                        <li class="step step-neutral">Step 6</li>
-                        <li class="step step-neutral">Step 7</li>
+                        <li class="step step-neutral"></li>
+                        <li class="step step-neutral"></li>
+                        <li class="step step-neutral"></li>
+                        <li class="step step-neutral"></li>
+                        <li class="step step-neutral"></li>
+                        <li class="step step-neutral"></li>
+                        <li class="step step-neutral"></li>
                     </ul>
             </div>
         </div>

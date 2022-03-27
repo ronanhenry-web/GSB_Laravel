@@ -2077,40 +2077,6 @@ html {
 .btn-primary:focus-visible {
   outline: 2px solid hsl(var(--p));
 }
-.btn-info {
-  --tw-border-opacity: 1;
-  border-color: hsl(var(--in) / var(--tw-border-opacity));
-  --tw-bg-opacity: 1;
-  background-color: hsl(var(--in) / var(--tw-bg-opacity));
-  --tw-text-opacity: 1;
-  color: hsl(var(--inc, var(--nc)) / var(--tw-text-opacity));
-}
-.btn-info:hover, .btn-info.btn-active {
-  --tw-border-opacity: 1;
-  border-color: hsl(var(--in) / var(--tw-border-opacity));
-  --tw-bg-opacity: 1;
-  background-color: hsl(var(--in) / var(--tw-bg-opacity));
-}
-.btn-info:focus-visible {
-  outline: 2px solid hsl(var(--in));
-}
-.btn-success {
-  --tw-border-opacity: 1;
-  border-color: hsl(var(--su) / var(--tw-border-opacity));
-  --tw-bg-opacity: 1;
-  background-color: hsl(var(--su) / var(--tw-bg-opacity));
-  --tw-text-opacity: 1;
-  color: hsl(var(--suc, var(--nc)) / var(--tw-text-opacity));
-}
-.btn-success:hover, .btn-success.btn-active {
-  --tw-border-opacity: 1;
-  border-color: hsl(var(--su) / var(--tw-border-opacity));
-  --tw-bg-opacity: 1;
-  background-color: hsl(var(--su) / var(--tw-bg-opacity));
-}
-.btn-success:focus-visible {
-  outline: 2px solid hsl(var(--su));
-}
 .btn.glass:hover,
     .btn.glass.btn-active {
   --glass-opacity: 25%;
@@ -2130,30 +2096,6 @@ html {
   background-color: hsl(var(--pf, var(--p)) / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
   color: hsl(var(--pc) / var(--tw-text-opacity));
-}
-.btn-outline.btn-success {
-  --tw-text-opacity: 1;
-  color: hsl(var(--su) / var(--tw-text-opacity));
-}
-.btn-outline.btn-success:hover {
-  --tw-border-opacity: 1;
-  border-color: hsl(var(--su) / var(--tw-border-opacity));
-  --tw-bg-opacity: 1;
-  background-color: hsl(var(--su) / var(--tw-bg-opacity));
-  --tw-text-opacity: 1;
-  color: hsl(var(--suc, var(--nc)) / var(--tw-text-opacity));
-}
-.btn-outline.btn-info {
-  --tw-text-opacity: 1;
-  color: hsl(var(--in) / var(--tw-text-opacity));
-}
-.btn-outline.btn-info:hover {
-  --tw-border-opacity: 1;
-  border-color: hsl(var(--in) / var(--tw-border-opacity));
-  --tw-bg-opacity: 1;
-  background-color: hsl(var(--in) / var(--tw-bg-opacity));
-  --tw-text-opacity: 1;
-  color: hsl(var(--inc, var(--nc)) / var(--tw-text-opacity));
 }
 .btn.loading.btn-square:before, .btn.loading.btn-circle:before {
   margin-right: 0px;
@@ -2280,12 +2222,6 @@ body[dir="rtl"] .checkbox:checked,
 .drawer-toggle:focus-visible ~ .drawer-content .drawer-button.btn-primary {
   outline: 2px solid hsl(var(--p));
 }
-.drawer-toggle:focus-visible ~ .drawer-content .drawer-button.btn-info {
-  outline: 2px solid hsl(var(--in));
-}
-.drawer-toggle:focus-visible ~ .drawer-content .drawer-button.btn-success {
-  outline: 2px solid hsl(var(--su));
-}
 .dropdown.dropdown-open .dropdown-content, .dropdown.dropdown-hover:hover .dropdown-content, .dropdown:focus .dropdown-content, .dropdown:focus-within .dropdown-content {
   --tw-scale-x: 1;
   --tw-scale-y: 1;
@@ -2308,13 +2244,6 @@ body[dir="rtl"] .checkbox:checked,
 }
 .input-primary:focus {
   outline: 2px solid hsl(var(--p));
-}
-.input-info {
-  --tw-border-opacity: 1;
-  border-color: hsl(var(--in) / var(--tw-border-opacity));
-}
-.input-info:focus {
-  outline: 2px solid hsl(var(--in));
 }
 .input-disabled, .input[disabled] {
   cursor: not-allowed;
@@ -2573,13 +2502,6 @@ body[dir="rtl"] .checkbox:checked,
 }
 .select-primary:focus {
   outline: 2px solid hsl(var(--p));
-}
-.select-info {
-  --tw-border-opacity: 1;
-  border-color: hsl(var(--in) / var(--tw-border-opacity));
-}
-.select-info:focus {
-  outline: 2px solid hsl(var(--in));
 }
 .select-disabled::-moz-placeholder, .select[disabled]::-moz-placeholder {
   color: hsl(var(--bc) / var(--tw-placeholder-opacity));
@@ -2946,20 +2868,14 @@ body[dir="rtl"] .checkbox:checked,
 .mb-8 {
   margin-bottom: 2rem;
 }
-.mt-10 {
-  margin-top: 2.5rem;
-}
-.mb-12 {
-  margin-bottom: 3rem;
-}
 .ml-auto {
   margin-left: auto;
 }
 .ml-80 {
   margin-left: 20rem;
 }
-.ml-40 {
-  margin-left: 10rem;
+.ml-8 {
+  margin-left: 2rem;
 }
 .block {
   display: block;
@@ -3079,9 +2995,6 @@ body[dir="rtl"] .checkbox:checked,
 .flex-col {
   flex-direction: column;
 }
-.flex-wrap {
-  flex-wrap: wrap;
-}
 .items-center {
   align-items: center;
 }
@@ -3181,30 +3094,6 @@ body[dir="rtl"] .checkbox:checked,
   --tw-bg-opacity: 1;
   background-color: rgb(31 41 55 / var(--tw-bg-opacity));
 }
-.bg-secondary {
-  --tw-bg-opacity: 1;
-  background-color: hsl(var(--s) / var(--tw-bg-opacity));
-}
-.bg-warning {
-  --tw-bg-opacity: 1;
-  background-color: hsl(var(--wa) / var(--tw-bg-opacity));
-}
-.bg-orange-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(234 88 12 / var(--tw-bg-opacity));
-}
-.bg-primary {
-  --tw-bg-opacity: 1;
-  background-color: hsl(var(--p) / var(--tw-bg-opacity));
-}
-.bg-error {
-  --tw-bg-opacity: 1;
-  background-color: hsl(var(--er) / var(--tw-bg-opacity));
-}
-.bg-info {
-  --tw-bg-opacity: 1;
-  background-color: hsl(var(--in) / var(--tw-bg-opacity));
-}
 .bg-success {
   --tw-bg-opacity: 1;
   background-color: hsl(var(--su) / var(--tw-bg-opacity));
@@ -3269,6 +3158,9 @@ body[dir="rtl"] .checkbox:checked,
 .pb-1 {
   padding-bottom: 0.25rem;
 }
+.pb-8 {
+  padding-bottom: 2rem;
+}
 .pl-3 {
   padding-left: 0.75rem;
 }
@@ -3280,9 +3172,6 @@ body[dir="rtl"] .checkbox:checked,
 }
 .pt-8 {
   padding-top: 2rem;
-}
-.pb-8 {
-  padding-bottom: 2rem;
 }
 .pb-12 {
   padding-bottom: 3rem;
@@ -3365,6 +3254,10 @@ body[dir="rtl"] .checkbox:checked,
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
+.text-success {
+  --tw-text-opacity: 1;
+  color: hsl(var(--su) / var(--tw-text-opacity));
+}
 .text-indigo-700 {
   --tw-text-opacity: 1;
   color: rgb(67 56 202 / var(--tw-text-opacity));
@@ -3396,22 +3289,6 @@ body[dir="rtl"] .checkbox:checked,
 .text-indigo-600 {
   --tw-text-opacity: 1;
   color: rgb(79 70 229 / var(--tw-text-opacity));
-}
-.text-success {
-  --tw-text-opacity: 1;
-  color: hsl(var(--su) / var(--tw-text-opacity));
-}
-.text-warning {
-  --tw-text-opacity: 1;
-  color: hsl(var(--wa) / var(--tw-text-opacity));
-}
-.text-info {
-  --tw-text-opacity: 1;
-  color: hsl(var(--in) / var(--tw-text-opacity));
-}
-.text-error {
-  --tw-text-opacity: 1;
-  color: hsl(var(--er) / var(--tw-text-opacity));
 }
 .underline {
   -webkit-text-decoration-line: underline;

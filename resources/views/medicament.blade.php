@@ -12,9 +12,9 @@
                     <div class="container text-black">
                         <div class="row justify-content-center">
                             <div class="col-md-8">
-                                <form method="get" action="{{ route('rechercheMedoc') }}" style="text-align: center;">
+                                <form method="get" action="{{ route('rechercheMedoc') }}">
                                 @csrf
-                                    <div class="form-control pb-8">
+                                    <div class="form-control pb-8 ml-12">
                                         <label class="label">
                                             <span>Liste des médicaments !</span>
                                         </label>

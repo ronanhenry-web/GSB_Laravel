@@ -11,42 +11,47 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div class="container">
                         <div class="row justify-content-center">
-                            <div class="col-md-8">
+                            <div class="col-md-8 text-center">
                                 <form action="/nouveauRapport" method="post">
                                     @csrf
-                                    <div class ="container">
-                                        <div class="mb-3" style="background-color: grey; margin-right: 841px; padding-left: 5px;">  
-                                            <label for="exampleInputEmail1" class="form-label">Numéro rapport :</label>
-                                            <input type="number" class="form-control" name="num" required>
+                                    <div class ="container text-black mx-10">
+                                        <div class="form-control pb-8">
+                                            <label class="input-group">
+                                                <span>Numéro rapport</span>
+                                                <input type="number" placeholder="insérer un chiffre" class="input input-bordered input-primary" name="num" required>
+                                            </label>
                                         </div>
-                                        <br>
-                                        <div class="mb-3" style="background-color: grey; margin-right: 716px; padding-left: 5px;">  
-                                            <label for="exampleInputEmail1" class="form-label">Numéro du praticien :</label>
-                                            <select name="praticien">
-                                                @foreach ($praticiens as $info)
-                                                    <option value="{{ $info->PRA_NUM }}">{{ $info->PRA_NOM." ".$info->PRA_PRENOM }}</option>
-                                                @endforeach
-                                            </select>
+                                        <div class="form-control pb-8">  
+                                            <label class="input-group">
+                                                <span>Nom Praticien</span>
+                                                <select name="praticien" class="select select-bordered select-primary w-full max-w-xs">
+                                                    <option selected="selected" disabled>Choisissez votre praticien</option>
+                                                    @foreach ($praticiens as $info)
+                                                        <option value="{{ $info->PRA_NUM }}">{{ $info->PRA_NOM." ".$info->PRA_PRENOM }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </label>
                                         </div>
-                                        <br>
-                                        <div class="mb-3" style="background-color: grey; margin-right: 875px; padding-left: 5px;">  
-                                            <label for="exampleInputEmail1" class="form-label">Date rapport :</label>
-                                            <input type="datetime-local" class="form-control" name="date" required>
+                                        <div class="form-control pb-8">
+                                            <label class="input-group">
+                                                <span>Date rapport</span>
+                                                <input type="datetime-local" class="input input-bordered input-primary w-full max-w-xs" name="date" required>
+                                            </label>
                                         </div>
-                                        <br>
-                                        <div class="mb-3" style="background-color: grey; margin-right: 840px; padding-left: 5px;">  
-                                            <label for="exampleInputEmail1" class="form-label">Bilan du rapport :</label>
-                                            <input type="text" class="form-control" name="bilan" required>
+                                        <div class="form-control pb-8">
+                                            <label class="input-group">
+                                                <span>Bilan du rapport</span>
+                                                <input type="text" placeholder="la personne a une douleur au dos" class="input input-bordered input-primary w-80" name="bilan" required>
+                                            </label>
                                         </div>
-                                        <br>
-                                        <div class="mb-3" style="background-color: grey; margin-right: 841px; padding-left: 5px;">  
-                                            <label for="exampleInputEmail1" class="form-label">Motif du rapport :</label>
-                                            <input type="text" class="form-control" name="motif" required>
+                                        <div class="form-control pb-12">
+                                            <label class="input-group">
+                                                <span>Motif du rapport</span>
+                                                <input type="text" placeholder="cancer du crâne" class="input input-bordered input-primary w-full max-w-xs" name="motif" required>
+                                            </label>
                                         </div>
-                                    </div>  
-                                    <br>
-                                    <br>         
-                                    <button type="submit" style="font-size: 24px; background-color: rgb(0, 119, 255); border-radius: 3px; padding-left: 5px; padding-right: 5px; margin-left: 75%;">Ajouter nouveau rapport</button>
+                                    </div>       
+                                    <button type="submit" class="btn btn-primary mb-4">Ajouter nouveau rapport</button>
                                 </form>
                             </div>
                         </div>

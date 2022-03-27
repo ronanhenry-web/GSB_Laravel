@@ -17,6 +17,7 @@ Route::get('/', function () {
     return redirect()->route('dashboard');
 });
 
+// Page par défaut
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
@@ -27,13 +28,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/rapport',[App\Http\Controllers\RapportController::class,'liste'])->name('rapport');
     
     Route::post('/nouveauRapport',[App\Http\Controllers\RapportController::class,'store'])->name('nouveauRapport');
-    Route::get('/nouveauRapport',[App\Http\Controllers\RapportController::class,'rapportPraticien'])->name('rapportPraticien');
+    Route::get('/nouveauRapport',[App\Http\Controllers\RapportController::class,'rapportVisite'])->name('rapportVisite');
+    
+    Route::get('/medoc',[App\Http\Controllers\MedocController::class,'liste'])->name('medoc');
+    Route::get('/medocById',[App\Http\Controllers\MedocController::class,'getIdMedoc'])->name('rechercheMedoc');
     
     Route::get('/praticien',[App\Http\Controllers\PraticienController::class,'liste'])->name('praticien');
-    Route::get('/praticienById',[App\Http\Controllers\PraticienController::class,'getIdPraticien'])->name('recherchePraticien');
-    
-    Route::get('/visiteur',[App\Http\Controllers\VisiteurController::class,'liste'])->name('visiteur');
-    Route::get('/searchVisiteur',[App\Http\Controllers\VisiteurController::class,'search'])->name('research');
+    Route::get('/searchPraticien',[App\Http\Controllers\PraticienController::class,'search'])->name('research');
 
     Route::post('/profil',[App\Http\Controllers\ProfilController::class,'storeProfil'])->name('profil');
     Route::get('/profil',[App\Http\Controllers\ProfilController::class,'liste'])->name('profilVisiteur');

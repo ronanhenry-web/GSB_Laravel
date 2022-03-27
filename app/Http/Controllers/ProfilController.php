@@ -8,6 +8,7 @@ use App\Models\Visiteur;
 
 class ProfilController extends Controller
 {
+    // Affichage du profil
     public function liste()
     {
         $visiteurs = Visiteur::all();
@@ -15,12 +16,12 @@ class ProfilController extends Controller
         return view("profil", ["visiteurs" => $visiteurs]);
     }
 
+    // Ajout de donnée par modification de l'utilisateur
     public function storeProfil(Request $request)
     {
         $request->validate([
             "nom"=>["required", "string"],
         ]);
-
         $profil = Visiteur::find(auth()->id());
         $profil->VIS_NOM = $request->nom;
         $profil->Vis_PRENOM = $request->prenom;
@@ -28,6 +29,7 @@ class ProfilController extends Controller
         $profil->VIS_VILLE = $request->ville;
         $profil->VIS_CP = $request->cp;
         $profil->save();
-        return redirect('/dashboard');
+        
+        return redirect('/profil');
     }
 }

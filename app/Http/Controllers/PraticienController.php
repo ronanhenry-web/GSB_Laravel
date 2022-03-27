@@ -8,19 +8,22 @@ use App\Models\Praticien;
 
 class PraticienController extends Controller
 {
+    // Affichage des praticiens
     public function liste()
     {
-        $praticiens = Praticien::all();
         $praticien = Praticien::all()->first();
-        
+        $praticiens = Praticien::all();
+
         return view("praticien", ["praticien" => $praticien,"praticiens" => $praticiens]);
     }
 
-    public function getIdPraticien(Request $request)
+    // Barre de recherche
+    public function search()
     {
-        // dd($request);   
-        $praticien = Praticien::find($request->recherchePraticiens);
-        $praticiens = Praticien::all();
-        return view("praticien", ["praticien" => $praticien, "praticiens" => $praticiens]);
+        $q = request()->input('q');
+        $searchPraticien = Praticien::where('PRA_NOM', 'like', "$q%")
+        ->get();
+
+        return view('praticien')->with('praticiens', $searchPraticien);
     }
 }

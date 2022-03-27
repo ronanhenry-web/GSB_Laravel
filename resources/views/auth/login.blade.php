@@ -17,14 +17,14 @@
 
             <!-- Email Address -->
             <div>
-                <x-label for="nom" :value="__('Nom')" />
+                <x-label class="link" for="nom" :value="__('Nom :')" />
 
                 <x-input id="nom" class="block mt-1 w-full" type="text" placeholder="swiss" name="nom" :value="old('nom')" required autofocus />
             </div>
 
             <!-- Password -->
             <div class="mt-4">
-                <x-label for="date" :value="__('Date')" />
+                <x-label class="link" for="date" :value="__('Date :')" />
 
                 <x-input id="date" class="block mt-1 w-full"
                                 type="text"

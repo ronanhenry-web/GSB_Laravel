@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Modification du profil utilisateur') }}
+            {{ __('Modification du profil visiteur') }}
         </h2>
     </x-slot>
     
@@ -11,43 +11,42 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div class="container">
                         <div class="row justify-content-center">
-                            <div class="col-md-8">
+                            <div class="col-md-8 text-center">
                                 <form action="/profil" method="post">
                                     @csrf
-                                    <div class ="container">
-                                        <div class="mb-3" style="background-color: grey; margin-right: 843px; padding-left: 5px;">  
-                                            <label for="exampleInputEmail1" class="form-label">Nom du visiteur :</label>
-                                            <input value="{{$visiteurs = auth()->user()->VIS_NOM}}" type="text" class="form-control" name="nom" required>
+                                    <div class ="container text-black mx-10">
+                                        <div class="form-control pb-8">
+                                            <label class="input-group">
+                                                <span>Nom</span>
+                                                <input value="{{$visiteurs = auth()->user()->VIS_NOM}}" type="text" class="input input-bordered input-primary" name="nom" required>
+                                            </label>
                                         </div>
-                                        <br>
-                                        <br>
-                                        <div class="mb-3" style="background-color: grey; margin-right: 820px; padding-left: 5px;">  
-                                            <label for="exampleInputEmail1" class="form-label">Prénom du visiteur :</label>
-                                            <input  value="{{$visiteurs = auth()->user()->Vis_PRENOM}}" type="text" class="form-control" name="prenom" required>
+                                        <div class="form-control pb-8">
+                                            <label class="input-group">
+                                                <span>Prénom</span>
+                                                <input  value="{{$visiteurs = auth()->user()->Vis_PRENOM}}" type="text" class="input input-bordered input-primary" name="prenom" required>
+                                            </label>
                                         </div>
-                                        <br>
-                                        <br>
-                                        <div class="mb-3" style="background-color: grey; margin-right: 895px; padding-left: 5px;">  
-                                            <label for="exampleInputEmail1" class="form-label">Adresse :</label>
-                                            <input value="{{$visiteurs = auth()->user()->VIS_ADRESSE}}" type="text" class="form-control" name="adresse" required>
+                                        <div class="form-control pb-8">
+                                            <label class="input-group">
+                                                <span>Adresse</span>
+                                                <input value="{{$visiteurs = auth()->user()->VIS_ADRESSE}}" type="text" class="input input-bordered input-primary w-full max-w-xs" name="adresse" required>
+                                            </label>
                                         </div>
-                                        <br>
-                                        <br>
-                                        <div class="mb-3" style="background-color: grey; margin-right: 924px; padding-left: 5px;">  
-                                            <label for="exampleInputEmail1" class="form-label">Ville :</label>
-                                            <input value="{{$visiteurs = auth()->user()->VIS_VILLE}}" type="text" class="form-control" name="ville" required>
+                                        <div class="form-control pb-12">
+                                            <label class="input-group">
+                                                <span>Ville</span>
+                                                <input value="{{$visiteurs = auth()->user()->VIS_VILLE}}" type="text" class="input input-bordered input-primary" name="ville" required>
+                                            </label>
                                         </div>
-                                        <br>
-                                        <br>
-                                        <div class="mb-3" style="background-color: grey; margin-right: 868px; padding-left: 5px;">  
-                                            <label for="exampleInputEmail1" class="form-label">Code postal :</label>
-                                            <input value="{{$visiteurs = auth()->user()->VIS_CP}}" type="text" class="form-control" name="cp" required>
+                                        <div class="form-control pb-12">
+                                            <label class="input-group">
+                                                <span>Code postal</span>
+                                                <input value="{{$visiteurs = auth()->user()->VIS_CP}}" type="number" class="input input-bordered input-primary" name="cp" required>
+                                            </label>
                                         </div>
-                                    </div>  
-                                    <br>
-                                    <br>
-                                    <br>         
-                                    <button type="submit" style="font-size: 24px; background-color: rgb(0, 119, 255); border-radius: 3px; padding-left: 5px; padding-right: 5px; margin-left: 80%;">Modifier profil</button>
+                                    </div>       
+                                    <button type="submit" class="btn btn-primary mb-4">Modifier profil</button>
                                 </form>
                             </div>
                         </div>

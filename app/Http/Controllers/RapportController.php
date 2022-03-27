@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class RapportController extends Controller
 {
-    // Rapport
+    // Rapport affichage
     public function liste()
     {
         //requete pour recup rapport du user actif et pas les autres
@@ -23,21 +23,20 @@ class RapportController extends Controller
         return view("rapport", ["rapports" => $rapports]);
     }
 
-    // PraticienRapport
-    public function rapportPraticien()
+    // Rapport de visite
+    public function rapportVisite()
     {
         $praticiens = Praticien::all();
         
         return view("nouveauRapport", ["praticiens" => $praticiens]);
     }
 
-    // NouveauRapport
+    // Ajout de donnée par modification de l'utilisateur
     public function store(Request $request)
     {
         $request->validate([
             "num"=>["required", ""]
         ]);
-
         $rapport = new Rapport();
         $rapport->VIS_MATRICULE = auth()->user()->VIS_MATRICULE;
         // $rapport->VIS_MATRICULE = 'a131';
@@ -47,6 +46,7 @@ class RapportController extends Controller
         $rapport->RAP_BILAN = $request->bilan;
         $rapport->RAP_MOTIF = $request->motif;
         $rapport->save();
+
         return redirect('/rapport');
     }
 }

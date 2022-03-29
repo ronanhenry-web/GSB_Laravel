@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : Dim 27 mars 2022 à 17:55
+-- Généré le : mar. 29 mars 2022 à 12:03
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -528,7 +528,7 @@ CREATE TABLE IF NOT EXISTS `presentation` (
 DROP TABLE IF EXISTS `rapport_visite`;
 CREATE TABLE IF NOT EXISTS `rapport_visite` (
   `VIS_MATRICULE` varchar(4) NOT NULL,
-  `RAP_NUM` tinyint(4) NOT NULL,
+  `RAP_NUM` tinyint(4) NOT NULL AUTO_INCREMENT,
   `PRA_NUM` tinyint(4) DEFAULT NULL,
   `RAP_DATE` varchar(19) DEFAULT NULL,
   `RAP_BILAN` varchar(90) DEFAULT NULL,
@@ -536,7 +536,7 @@ CREATE TABLE IF NOT EXISTS `rapport_visite` (
   PRIMARY KEY (`RAP_NUM`),
   KEY `VIS_MATRICULE` (`VIS_MATRICULE`),
   KEY `PRA_NUM` (`PRA_NUM`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `rapport_visite`
@@ -546,7 +546,9 @@ INSERT INTO `rapport_visite` (`VIS_MATRICULE`, `RAP_NUM`, `PRA_NUM`, `RAP_DATE`,
 ('zzz', 1, 1, '2022-03-12T18:14', 'maladie des pieds', 'maladie de sévère en dessous du pied'),
 ('zzz', 2, 13, '2022-03-26T17:16', 'mal au dos', 'la personne a des douleurs dans bas du dos'),
 ('a17', 4, 4, '2003-05-21 00:00:00', 'Changement de direction, redéfinition de la politique médicamenteuse, recours au générique', 'Baisse activité'),
-('zzz', 12, 74, '2020-03-06 00:00:00', '', 'Cancer du crane');
+('zzz', 12, 74, '2020-03-06 00:00:00', '', 'Cancer du crane'),
+('zzz', 13, 4, '2022-03-12T14:00', 'RRRR', 'RRRRR'),
+('zzz', 14, 12, '2022-03-25T17:01', 'pppp', 'pppppp');
 
 -- --------------------------------------------------------
 

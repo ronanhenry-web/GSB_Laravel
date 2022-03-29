@@ -11,16 +11,10 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div class="container">
                         <div class="row justify-content-center">
-                            <div class="col-md-8 text-center">
+                            <div class="col-md-8 text-center bg-primary pt-8">
                                 <form action="/nouveauRapport" method="post">
                                     @csrf
                                     <div class ="container text-black mx-10">
-                                        <div class="form-control pb-8">
-                                            <label class="input-group">
-                                                <span>Numéro rapport</span>
-                                                <input type="number" placeholder="insérer un chiffre" class="input input-bordered input-primary" name="num" required>
-                                            </label>
-                                        </div>
                                         <div class="form-control pb-8">  
                                             <label class="input-group">
                                                 <span>Nom Praticien</span>
@@ -40,18 +34,32 @@
                                         </div>
                                         <div class="form-control pb-8">
                                             <label class="input-group">
-                                                <span>Bilan du rapport</span>
-                                                <input type="text" placeholder="la personne a une douleur au dos" class="input input-bordered input-primary w-80" name="bilan" required>
-                                            </label>
-                                        </div>
-                                        <div class="form-control pb-12">
-                                            <label class="input-group">
                                                 <span>Motif du rapport</span>
                                                 <input type="text" placeholder="cancer du crâne" class="input input-bordered input-primary w-full max-w-xs" name="motif" required>
                                             </label>
                                         </div>
-                                    </div>       
-                                    <button type="submit" class="btn btn-primary mb-4">Ajouter nouveau rapport</button>
+                                        <div class="form-control pb-8">
+                                            <label class="input-group">
+                                                <span>Bilan du rapport</span>
+                                                <input type="text" placeholder="la personne a une douleur au dos" class="input input-bordered input-primary w-80" name="bilan" required>
+                                            </label>
+                                        </div>
+                                        <div class="form-control pb-8">  
+                                            <label class="input-group">
+                                            <span>Ajouter un médicament</span>
+                                                <select name="medoc" class="select select-bordered select-primary w-full max-w-xs">
+                                                    <option selected="selected" disabled>Choisissez votre medoc</option>
+                                                    @foreach ($medocs as $info)
+                                                        <option value="{{ $info->MED_DEPOTLEGAL }}">{{ $info->MED_NOMCOMMERCIAL }}</option>
+                                                    @endforeach
+                                                </select>
+                                                <label class="input-group">
+                                                    <input type="number" placeholder="choisir la quantité" class="input input-bordered input-primary" name="qte" required>
+                                                </label>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-danger mb-4">Ajouter nouveau rapport</button>
                                 </form>
                             </div>
                         </div>

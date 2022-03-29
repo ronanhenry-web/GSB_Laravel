@@ -11,7 +11,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div class="container">
                         <div class="row justify-content-center">
-                            <div class="col-md-8 text-center">
+                            <div class="col-md-8 text-center bg-primary pt-8">
                                 <form action="/profil" method="post">
                                     @csrf
                                     <div class ="container text-black mx-10">
@@ -46,7 +46,7 @@
                                             </label>
                                         </div>
                                     </div>       
-                                    <button type="submit" class="btn btn-primary mb-4">Modifier profil</button>
+                                    <button type="submit" class="btn btn-danger mb-4">Modifier profil</button>
                                 </form>
                             </div>
                         </div>

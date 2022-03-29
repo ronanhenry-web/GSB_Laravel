@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 29 mars 2022 à 12:03
+-- Généré le : mar. 29 mars 2022 à 16:45
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -207,7 +207,7 @@ CREATE TABLE IF NOT EXISTS `medicament` (
 --
 
 INSERT INTO `medicament` (`MED_DEPOTLEGAL`, `MED_NOMCOMMERCIAL`, `FAM_CODE`, `MED_COMPOSITION`, `MED_EFFETS`, `MED_CONTREINDIC`, `MED_PRIXECHANTILLON`) VALUES
-('3MYC7', 'TRIMYCINE', 'CRT', 'Triamcinolone (acétonide) + Néomycine + Nystatine', 'Ce médicament est un corticoïde à  activité forte ou très forte associé à  un antibiotique et un antifongique, utilisé en application locale dans certaines atteintes cutanées surinfectées.', 'Ce médicament est contre-indiqué en cas d\'allergie à  l\'un des constituants, d\'infections de la peau ou de parasitisme non traités, d\'acné. Ne pas appliquer sur une plaie, ni sous un pansement occlusif.', ''),
+('3MYC7', 'TRIMYCINE', 'CRT', 'Triamcinolone (acétonide) + Néomycine + Nystatine', 'Ce médicament est un corticoïde à activité forte associé à un antibiotique, utilisé en application locale dans certaines atteintes cutanées surinfectées.', 'Ce médicament est contre-indiqué en cas d\'allergie à l\'un des constituants, d\'infections de la peau ou de parasitisme non traités, d\'acné.', ''),
 ('ADIMOL9', 'ADIMOL', 'ABP', 'Amoxicilline + Acide clavulanique', 'Ce médicament, plus puissant que les pénicillines simples, est utilisé pour traiter des infections bactériennes spécifiques.', 'Ce médicament est contre-indiqué en cas d\'allergie aux pénicillines ou aux céphalosporines.', ''),
 ('AMOPIL7', 'AMOPIL', 'ABP', 'Amoxicilline', 'Ce médicament, plus puissant que les pénicillines simples, est utilisé pour traiter des infections bactériennes spécifiques.', 'Ce médicament est contre-indiqué en cas d\'allergie aux pénicillines. Il doit être administré avec prudence en cas d\'allergie aux céphalosporines.', ''),
 ('AMOX45', 'AMOXAR', 'ABP', 'Amoxicilline', 'Ce médicament, plus puissant que les pénicillines simples, est utilisé pour traiter des infections bactériennes spécifiques.', 'La prise de ce médicament peut rendre positifs les tests de dépistage du dopage.', ''),
@@ -356,10 +356,8 @@ CREATE TABLE IF NOT EXISTS `offrir` (
 --
 
 INSERT INTO `offrir` (`VIS_MATRICULE`, `RAP_NUM`, `MED_DEPOTLEGAL`, `OFF_QTE`) VALUES
-('a17', 4, '3MYC7', 3),
-('a17', 4, 'AMOX45', 12),
-('zzz', 12, 'ADIMOL9', 12),
-('zzz', 12, 'BACTIV13', 1);
+('zzz', 22, 'EQUILARX6', 2),
+('zzz', 23, 'CARTION6', 1);
 
 -- --------------------------------------------------------
 
@@ -536,19 +534,15 @@ CREATE TABLE IF NOT EXISTS `rapport_visite` (
   PRIMARY KEY (`RAP_NUM`),
   KEY `VIS_MATRICULE` (`VIS_MATRICULE`),
   KEY `PRA_NUM` (`PRA_NUM`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `rapport_visite`
 --
 
 INSERT INTO `rapport_visite` (`VIS_MATRICULE`, `RAP_NUM`, `PRA_NUM`, `RAP_DATE`, `RAP_BILAN`, `RAP_MOTIF`) VALUES
-('zzz', 1, 1, '2022-03-12T18:14', 'maladie des pieds', 'maladie de sévère en dessous du pied'),
-('zzz', 2, 13, '2022-03-26T17:16', 'mal au dos', 'la personne a des douleurs dans bas du dos'),
-('a17', 4, 4, '2003-05-21 00:00:00', 'Changement de direction, redéfinition de la politique médicamenteuse, recours au générique', 'Baisse activité'),
-('zzz', 12, 74, '2020-03-06 00:00:00', '', 'Cancer du crane'),
-('zzz', 13, 4, '2022-03-12T14:00', 'RRRR', 'RRRRR'),
-('zzz', 14, 12, '2022-03-25T17:01', 'pppp', 'pppppp');
+('zzz', 22, 1, '2022-03-29T18:39', 'acné', 'apparition de bouton dans le dos'),
+('zzz', 23, 10, '2022-03-16T18:41', 'douleur à la tête', 'cancer du crâne');
 
 -- --------------------------------------------------------
 
@@ -961,7 +955,7 @@ INSERT INTO `visiteur` (`VIS_MATRICULE`, `VIS_NOM`, `Vis_PRENOM`, `VIS_ADRESSE`,
 ('t47', 'Tiphagne', 'Patrick', '7B r Gay Lussac', '62000', 'ARRAS', '1997-08-29 00:00:00', '', 'SW'),
 ('t55', 'Tréhet', 'Alain', '7D chem Barral', '12000', 'RODEZ', '1994-11-29 00:00:00', '', 'SW'),
 ('t60', 'Tusseau', 'Josselin', '63 r Bon Repos', '28000', 'CHARTRES', '1991-03-29 00:00:00', '', 'GY'),
-('zzz', 'swiss', 'bourdin', '18 rue des potiers', '35600', 'Redon', '2003-06-18 00:00:00', '', 'BC');
+('zzz', 'swiss', 'bourdin', '18 rue des choux', '35600', 'Redon', '2003-06-18 00:00:00', '', 'BC');
 
 --
 -- Contraintes pour les tables déchargées

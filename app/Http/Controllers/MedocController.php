@@ -8,7 +8,7 @@ use App\Models\Medicament;
 
 class MedocController extends Controller
 {
-    // Affichage médoc
+    // Affichage médoc et afficher le premier médoc
     public function liste()
     {
         $medicament = Medicament::all()->first();
@@ -17,7 +17,7 @@ class MedocController extends Controller
         return view("medicament", ["medicament" => $medicament,"medicaments" => $medicaments]);
     }
 
-    // Afficher le premier médoc par défaut puis afficher avec un select en fonction de la valeur
+    // Afficher avec un select en fonction de la valeur ID
     public function getIdMedoc(Request $request)
     {
         $medicament = Medicament::find($request->rechercheMedoc);

@@ -16,14 +16,13 @@
                                 <div class="overflow-x-auto mt-8    ">
                                     <table class="table table-zebra w-full text-black text-center">
                                         <thead >
-                                            <tr class="text-primary">
+                                            <tr class="text-white">
                                                 <td class="bg-success">Nom</td>
                                                 <td class="bg-success">Prénom</td>
                                                 <td class="bg-success">Adresse</strong></td>
-                                                <td class="bg-success">Code Postale</td>
                                                 <td class="bg-success">Ville</td>
                                                 <td class="bg-success">Coef Notoriété</td>
-                                                <td class="bg-success">Labo code</td>
+                                                <td class="bg-success">Fonction</td>
                                             </tr>
                                         </thead>
                                         <tbody >
@@ -39,16 +38,23 @@
                                                     <p>{{ $info->PRA_ADRESSE }}</p>
                                                 </td>
                                                 <td>
-                                                    <p>{{ $info->PRA_CP }}</p>
-                                                </td>
-                                                <td>
-                                                    <p>{{ $info->PRA_VILLE }}</p>
+                                                    <p>{{ $info->PRA_CP }}, {{ $info->PRA_VILLE }}</p>
                                                 </td>
                                                 <td>
                                                     <p>{{ $info->PRA_COEFNOTORIETE }}</p>
                                                 </td>
                                                 <td>
-                                                    <p>{{ $info->TYP_CODE }}</p>
+                                                    @if ($info->TYP_CODE == "MH")
+                                                        <p>Médecin Hospitalier</p>        
+                                                    @elseif ($info->TYP_CODE == "MV")
+                                                        <p>Médecin de Ville</p>    
+                                                    @elseif ($info->TYP_CODE == "PH")
+                                                        <p>Pharmacien Hospitalier</p>
+                                                    @elseif ($info->TYP_CODE == "PO")
+                                                        <p>Pharmacien Officine</p>
+                                                    @elseif ($info->TYP_CODE == "PS")
+                                                        <p>Personnel de santé</p>
+                                                    @endif
                                                 </td>
                                             </tr>
                                             @endforeach

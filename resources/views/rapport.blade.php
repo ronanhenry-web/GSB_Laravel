@@ -15,21 +15,19 @@
                                 <div class="overflow-x-auto">
                                     <button onclick="window.location.href = '/nouveauRapport';"class="btn btn-primary mb-8">nouveau Rapport</button>
                                     <table class="table table-zebra w-full text-black text-center">
-                                        <thead class="text-primary">
+                                        <thead class="text-white">
                                             <tr>
-                                                <td class="bg-success">Numéro</td>
                                                 <td class="bg-success">Praticien</td>
                                                 <td class="bg-success">Date</td>
                                                 <td class="bg-success">Bilan</td>
                                                 <td class="bg-success">Motif</td>
+                                                <td class="bg-success">Médoc</td>
+                                                <td class="bg-success">Quantité</td>
                                             </tr>
                                         </thead>
                                         <tbody >
                                             @foreach($rapports as $info)
                                             <tr>
-                                                <td>
-                                                    <p>{{ $info->RAP_NUM }}</p>
-                                                </td>
                                                 <td>
                                                     <p>{{ $info->PRA_NUM }}</p>
                                                 </td>
@@ -39,9 +37,21 @@
                                                 <td>
                                                     <p>{{ $info->RAP_BILAN }}</p>
                                                 </td>
-                                                <td><p>{{ $info->RAP_MOTIF }}</p></td>
+                                                <td>
+                                                    <p>{{ $info->RAP_MOTIF }}</p>
+                                                </td>
                                             </tr>
                                             @endforeach
+                                            {{-- @foreach($medocsQte as $info)
+                                            <tr>
+                                                <td>
+                                                    <p>{{ $info->MED_DEPOTLEGAL }}</p>
+                                                </td>
+                                                <td>
+                                                    <p>{{ $info->OFF_QTE }}</p>
+                                                </td>
+                                            </tr>
+                                            @endforeach --}}
                                         </tbody>
                                     </table>
                                 </div>

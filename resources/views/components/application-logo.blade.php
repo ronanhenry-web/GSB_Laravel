@@ -1,1 +1,1 @@
-<img src="images/1.png" alt="Logo GSB">
+<img src="images/2.png" alt="Logo GSB">

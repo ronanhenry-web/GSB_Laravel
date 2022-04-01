@@ -17,13 +17,29 @@ class PraticienController extends Controller
         return view("praticien", ["praticien" => $praticien,"praticiens" => $praticiens]);
     }
 
-    // Barre de recherche
-    public function search()
+    // Barre de recherche et select filtre vill et nom
+    public function search(Request $request)
     {
+        $res = request()->input('reinitialiser');
         $q = request()->input('q');
-        $searchPraticien = Praticien::where('PRA_NOM', 'like', "$q%")
-        ->get();
+        $ville = $request->rechercheParType;
 
-        return view('praticien')->with('praticiens', $searchPraticien);
+        if ($q != NULL && $ville != NULL) {
+            $praticien = Praticien::where('PRA_NOM', 'like', "$q%")
+            ->Where('PRA_VILLE', 'like', "$ville%")
+            ->get();
+        } elseif ($q != NULL) {
+            $praticien = Praticien::where('PRA_NOM', 'like', "$q%")
+            ->get();
+        } elseif ($ville != NULL) {
+            $praticien = Praticien::where('PRA_VILLE', 'like', "$ville%")
+            ->get();
+        } else {
+            $res = "";
+            $praticien = Praticien::where('PRA_NOM', 'like', "$res%")
+            ->get();
+        }
+
+        return view('praticien')->with('praticiens', $praticien);
     }
 }

@@ -16,4 +16,6 @@ class Visiteur extends Authenticatable
     protected $primaryKey = 'VIS_MATRICULE';
     public $timestamps = false;
     public $incrementing = false;
+    
 }
+

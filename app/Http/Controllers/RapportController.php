@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Auth;
 
 class RapportController extends Controller
 {
-    // Liaison entre deux table praticien et rapport_visite
+    // Liaison entre deux tables praticien et rapport_visite 
+    //permet de connaitre le user actuel pour lui afficher ses rapports
     public function liste()
     {
         //requete pour recup rapport du user actif et pas les autres
@@ -21,23 +22,37 @@ class RapportController extends Controller
         $rapports = Rapport::join('praticien', 'rapport_visite.PRA_NUM', '=', 'praticien.PRA_NUM')
             ->where('rapport_visite.VIS_MATRICULE', $id)
             ->get();
-        
-        return view("rapport", ["rapports" => $rapports]);
+    
+        // Afficher offrir dans le rapport pour afficher les medocs et la quantité
+        $medico = Offrir::join('medicament', 'offrir.MED_DEPOTLEGAL', '=', 'medicament.MED_DEPOTLEGAL')
+            ->where('offrir.VIS_MATRICULE', $id)
+            ->get();
+
+        return view("rapport", ["rapports" => $rapports, "medico" => $medico]);
     }
 
-    // Rapport de visite
+    // Rapport de visite affichage données
     public function rapportVisite()
     {
         $praticiens = Praticien::all();
         $medocs = Medicament::all();
-        $medocsQte = Offrir::all();
-                
-        return view("nouveauRapport", ["praticiens" => $praticiens, "medocs" => $medocs, "medocsQte" => $medocsQte]);
+        
+        return view("nouveauRapport", ["praticiens" => $praticiens, "medocs" => $medocs]);
     }
 
-    // Ajout de donnée par modification de l'utilisateur
+    // Ajout de donnée par modification de l'utilisateur dans nouveauRapport
     public function store(Request $request)
     {
+        // dd($request);
+        $request->validate([
+            "praticien"=>["required", "string"],
+            "date"=>["required", "date"],
+            "motif"=>["required", "string"],
+            "bilan"=>["required", "string"],
+            "ajoutMedoc"=>["required", "string"],
+            "quantite"=>["required", "int"]
+            
+        ]);
         $rapport = new Rapport();
         $rapport->VIS_MATRICULE = auth()->user()->VIS_MATRICULE;
         // $rapport->VIS_MATRICULE = 'a131';
@@ -53,9 +68,12 @@ class RapportController extends Controller
         $medoc = new Offrir();  
         $medoc->VIS_MATRICULE = $rapport->VIS_MATRICULE;
         $medoc->RAP_NUM = $lastRapport->RAP_NUM;
-        $medoc->MED_DEPOTLEGAL = $request->medoc;
-        $medoc->OFF_QTE = $request->qte;
+        $medoc->MED_DEPOTLEGAL = $request->ajoutMedoc;
+        $medoc->OFF_QTE = $request->quantite;
         $medoc->save();
+
+        // FLASH 
+        session()->flash('success', 'Rapport ajouté avec succès');
 
         return redirect('/rapport');
     }

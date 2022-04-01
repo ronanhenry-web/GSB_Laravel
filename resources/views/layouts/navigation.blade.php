@@ -4,6 +4,11 @@
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
+                <div class="avatar online">
+                    <div class="rounded-full scale-90" >
+                        <img src="https://api.lorem.space/image/face?hash=28212" />
+                    </div>
+                </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Histoire') }}

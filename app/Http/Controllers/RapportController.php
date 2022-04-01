@@ -47,7 +47,7 @@ class RapportController extends Controller
         $request->validate([
             "praticien"=>["required", "string"],
             "date"=>["required", "date"],
-            "motif"=>["required", "string"],
+            "motif"=>["nullable", "string"],
             "bilan"=>["required", "string"],
             "ajoutMedoc"=>["required", "string"],
             "quantite"=>["required", "int"]

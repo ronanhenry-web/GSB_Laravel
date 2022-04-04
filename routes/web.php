@@ -26,10 +26,10 @@ require __DIR__.'/auth.php';
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/rapport',[App\Http\Controllers\RapportController::class,'liste'])->name('rapport');
-    
+    Route::get('/rapport/{id}',[App\Http\Controllers\RapportController::class,'pdf'])->name('rapport.pdf');
+
     Route::post('/nouveauRapport',[App\Http\Controllers\RapportController::class,'store'])->name('nouveauRapport');
     Route::get('/nouveauRapport',[App\Http\Controllers\RapportController::class,'rapportVisite'])->name('rapportVisite');
-
     
     Route::get('/medoc',[App\Http\Controllers\MedocController::class,'liste'])->name('medoc');
     Route::get('/medocById',[App\Http\Controllers\MedocController::class,'getIdMedoc'])->name('rechercheMedoc');

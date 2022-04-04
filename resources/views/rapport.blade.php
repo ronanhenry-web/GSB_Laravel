@@ -34,6 +34,7 @@
                                                 <td class="bg-success">Motif</td>
                                                 <td class="bg-success">Médoc</td>
                                                 <td class="bg-success">Quantité</td>
+                                                <td class="bg-success">PDF</td>
                                             </tr>
                                         </thead>
                                         <tbody >
@@ -70,6 +71,9 @@
                                                             @endif
                                                         @endforeach
                                                     </ul>
+                                                </td>
+                                                <td>
+                                                    <button onclick="window.location.href = '{{ route ('rapport.pdf', ['id'=>$info->RAP_NUM]) }}';" target="blank" class="btn btn-link"><img class="pr-4 pl-4" src="images/4.png"></button>
                                                 </td>
                                             @endforeach
                                             </tr>

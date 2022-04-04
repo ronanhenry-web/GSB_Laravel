@@ -9,12 +9,18 @@ use App\Models\Praticien;
 use App\Models\Offrir;
 use App\Models\Medicament;
 use Illuminate\Support\Facades\Auth;
+use PDF;
+
+// Mettre le PDF
+// https://www.akilischool.com/cours/laravel-generer-un-pdf-avec-laravel-dompdf
 
 class RapportController extends Controller
 {
     // Liaison entre deux tables praticien et rapport_visite 
     //permet de connaitre le user actuel pour lui afficher ses rapports
-    public function liste()
+    public function liste(
+        // Post $post
+        )
     {
         //requete pour recup rapport du user actif et pas les autres
         // https://stackoverflow.com/questions/41621486/laravel-inner-join
@@ -28,7 +34,13 @@ class RapportController extends Controller
             ->where('offrir.VIS_MATRICULE', $id)
             ->get();
 
-        return view("rapport", ["rapports" => $rapports, "medico" => $medico]);
+        return view("rapport", ["rapports" => $rapports, "medico" => $medico]
+        // , $pdf->download(\Str::slug($post->title).".pdf")
+        )
+        // ->setPaper('a4', 'landscape')
+        // ->setWarnings(false)
+        // ->stream()
+        ;
     }
 
     // Rapport de visite affichage données
@@ -76,5 +88,11 @@ class RapportController extends Controller
         session()->flash('success', 'Rapport ajouté avec succès');
 
         return redirect('/rapport');
+    }
+
+    public function pdf($id) {
+        $pdf = PDF::loadView('pdf');
+        $pdf = PDF::loadHTML("<p>T'es beau Jimmy on te veux </p>");
+        return $pdf->stream();
     }
 }

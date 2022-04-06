@@ -8,7 +8,7 @@ use App\Models\Medicament;
 
 class MedocController extends Controller
 {
-    // Affichage médoc et afficher le premier médoc
+    // Affichage médoc et afficher le premier médoc pour le select
     public function liste()
     {
         $medicament = Medicament::all()->first();

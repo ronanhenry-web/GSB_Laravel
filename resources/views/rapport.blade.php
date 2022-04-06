@@ -73,7 +73,7 @@
                                                     </ul>
                                                 </td>
                                                 <td>
-                                                    <button onclick="window.location.href = '{{ route ('rapport.pdf', ['id'=>$info->RAP_NUM]) }}';" target="blank" class="btn btn-link"><img class="pr-4 pl-4" src="images/4.png"></button>
+                                                    <a href = '{{ route ('pdf', ['id'=>$info->RAP_NUM]) }}' target="_blank"><img class="pr-4 pl-4 w-24" src="images/4.png"></a>
                                                 </td>
                                             @endforeach
                                             </tr>

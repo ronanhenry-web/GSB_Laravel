@@ -18,6 +18,7 @@ class RapportController extends Controller
 {
     // Liaison entre deux tables praticien et rapport_visite 
     //permet de connaitre le user actuel pour lui afficher ses rapports
+    // liaison entre la tables medic et offrir pour lier les medocs choisi au rapport
     public function liste(
         // Post $post
         )
@@ -34,13 +35,7 @@ class RapportController extends Controller
             ->where('offrir.VIS_MATRICULE', $id)
             ->get();
 
-        return view("rapport", ["rapports" => $rapports, "medico" => $medico]
-        // , $pdf->download(\Str::slug($post->title).".pdf")
-        )
-        // ->setPaper('a4', 'landscape')
-        // ->setWarnings(false)
-        // ->stream()
-        ;
+        return view("rapport", ["rapports" => $rapports, "medico" => $medico]);
     }
 
     // Rapport de visite affichage données
@@ -90,9 +85,31 @@ class RapportController extends Controller
         return redirect('/rapport');
     }
 
-    public function pdf($id) {
-        $pdf = PDF::loadView('pdf');
-        $pdf = PDF::loadHTML("<p>T'es beau Jimmy on te veux </p>");
+    // Création du PDF
+    public function pdf($id)
+    {
+        // Afficher Rapport
+        $rapports = Rapport::join('praticien', 'rapport_visite.PRA_NUM', '=', 'praticien.PRA_NUM')
+            ->where('rapport_visite.RAP_NUM', $id)
+            ->first();
+    
+        // Afficher Offrir
+        $medico = Offrir::join('medicament', 'offrir.MED_DEPOTLEGAL', '=', 'medicament.MED_DEPOTLEGAL')
+            ->where('offrir.RAP_NUM', $id)
+            ->first();
+
+        // Afficher Praticiens
+        $praticiens = Praticien::join('rapport_visite', 'praticien.PRA_NUM', '=', 'rapport_visite.PRA_NUM')
+            ->where('rapport_visite.RAP_NUM', $id)
+            ->first();
+
+        // Afficher Visiteur (MATRICULE)
+        // $vis = Auth::user()->VIS_MATRICULE;
+        
+
+        // return view("pdf", ["rapports" => $rapports, "medico" => $medico, "praticiens"=> $praticiens]);
+        $pdf = PDF::loadView('pdf', ["rapports" => $rapports, "medico" => $medico, "praticiens"=> $praticiens]);
+        
         return $pdf->stream();
     }
 }

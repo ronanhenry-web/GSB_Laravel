@@ -26,8 +26,8 @@ require __DIR__.'/auth.php';
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/rapport',[App\Http\Controllers\RapportController::class,'liste'])->name('rapport');
-    Route::get('/rapport/{id}',[App\Http\Controllers\RapportController::class,'pdf'])->name('rapport.pdf');
-
+    Route::get('/rapport/{id}',[App\Http\Controllers\RapportController::class,'pdf'])->name('pdf');
+    
     Route::post('/nouveauRapport',[App\Http\Controllers\RapportController::class,'store'])->name('nouveauRapport');
     Route::get('/nouveauRapport',[App\Http\Controllers\RapportController::class,'rapportVisite'])->name('rapportVisite');
     

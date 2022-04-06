@@ -8,9 +8,9 @@
         <div class="modal">
             <div class="modal-box relative bg-gray-300">
                 <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                <h3 class="text-lg font-bold text-black">Filtre pour rechercher un praticien</h3>
+                <h3 class="text-lg font-bold text-black">Filtres pour rechercher un praticien</h3>
 
-                {{-- Barre de recherche --}}
+                {{-- Barre de recherche Nom --}}
                 <div class="form-control py-4">
                     <div class="input-group">
                         <input type="text" placeholder="Rechercher par NOM" class="input input-bordered" name="q" value="{{ request()->q ?? '' }}">
@@ -23,7 +23,7 @@
                 {{-- Select pour rechercher une ville --}}
                 <div class="form-control py-4">
                     <label class="input-group">
-                        <select name="rechercheParType" onChange="form.submit()" class="select select-bordered select-primary text-black">
+                        <select name="rechercheParVille" onChange="form.submit()" class="select select-bordered select-primary text-black">
                             <option selected="selected" disabled>Choisissez votre ville</option>
                             @foreach ($praticiens as $info)
                                 <option value="{{ $info->PRA_VILLE }}">{{ $info->PRA_VILLE }}</option>
@@ -31,9 +31,22 @@
                         </select>
                     </label>
                 </div>
+
+                {{-- Select pour rechercher une type --}}
+                <div class="form-control py-4">
+                    <label class="input-group">
+                        <select name="rechercheParType" onChange="form.submit()" class="select select-bordered select-primary text-black">
+                            <option selected="selected" disabled>Choisissez votre fonction</option>
+                            <option value="MH">Médecin Hospitalier</option>
+                            <option value="MV">Médecin de Ville</option>
+                            <option value="PH">Pharmacien Hospitalier</option>
+                            <option value="PS">Personnel de santé</option>
+                            <option value="PO">Pharmacien Officine</option>
+                        </select>
+                    </label>
+                </div>
             </div>
         </div>
-        {{-- <button type="submit" value="0" name="reinitialiser" class="btn ml-4">Réinitialiser les filtres</button> --}}
     </form>
     <div class="text-black">
         <form action="{{ route('research') }}">

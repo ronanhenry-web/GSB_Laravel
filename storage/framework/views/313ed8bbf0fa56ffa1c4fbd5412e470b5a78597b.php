@@ -1,0 +1,1 @@
+<img src="images/2.png" alt="Logo GSB"><?php /**PATH C:\wamp64\www\gsb\resources\views/components/application-logo.blade.php ENDPATH**/ ?>

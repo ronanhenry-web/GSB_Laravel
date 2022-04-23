@@ -7,7 +7,7 @@
     
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            {{-- succès ajout rapport --}}
+            {{-- Alert succès ajout rapport --}}
             @if (session('success'))
                 <div class="alert alert-success shadow-lg mb-9">
                     <div>
@@ -54,7 +54,7 @@
                                                 </td>
                                                 <td>
                                                     <ul>
-                                                        {{-- Affichage medoc --}}
+                                                        {{-- Afficher les medocs --}}
                                                         @foreach($medico as $infoMedoc)
                                                             @if($infoMedoc->RAP_NUM == $info->RAP_NUM)
                                                                 <li>{{ $infoMedoc->MED_NOMCOMMERCIAL }}</li>
@@ -64,7 +64,7 @@
                                                 </td>
                                                 <td>
                                                     <ul>
-                                                        {{-- Affichage quantite medoc --}}
+                                                        {{-- Afficher la quantitée du medoc --}}
                                                         @foreach($medico as $infoMedoc)
                                                             @if($infoMedoc->RAP_NUM == $info->RAP_NUM)
                                                                 <li>{{ $infoMedoc->OFF_QTE }}</li>
@@ -73,6 +73,7 @@
                                                     </ul>
                                                 </td>
                                                 <td>
+                                                    {{-- Target blank ne pas afficher dans l'URL --}}
                                                     <a href = '{{ route ('pdf', ['id'=>$info->RAP_NUM]) }}' target="_blank"><img class="pr-4 pl-4 w-24" src="images/4.png"></a>
                                                 </td>
                                             @endforeach

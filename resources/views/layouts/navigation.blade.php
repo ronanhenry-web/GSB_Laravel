@@ -50,12 +50,14 @@
                     </x-slot>
 
                     <x-slot name="content">
+                        {{-- Profil --}}
                         <form method="POST" action="{{ route('profil') }}">
                             @csrf
                             <x-dropdown-link :href="route('profil')">
                                 {{ __('Modifier profil') }}
                             </x-dropdown-link>
                         </form>
+
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -66,7 +68,6 @@
                                 {{ __('Déconnexion') }}
                             </x-dropdown-link>
                         </form>
-                        
                     </x-slot>
                 </x-dropdown>
             </div>

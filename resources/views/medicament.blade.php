@@ -12,6 +12,7 @@
                     <div class="container text-black bg-success">
                         <div class="row justify-content-center">
                             <div class="col-md-8">
+                                {{-- Select --}}
                                 <form method="get" action="{{ route('rechercheMedoc') }}">
                                 @csrf
                                     <div class="form-control py-8 mx-12 pl-8">
@@ -26,6 +27,7 @@
                                         </label>
                                     </div>
                                 </form>
+                                {{-- Afficher les données --}}
                                 <div class="overflow-x-auto">
                                     <table class="table w-full text-black">
                                         <tbody>

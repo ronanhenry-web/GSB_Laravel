@@ -17,11 +17,9 @@ use PDF;
 class RapportController extends Controller
 {
     // Liaison entre deux tables praticien et rapport_visite 
-    //permet de connaitre le user actuel pour lui afficher ses rapports
+    // permet de connaitre le user actuel pour lui afficher ses rapports
     // liaison entre la tables medic et offrir pour lier les medocs choisi au rapport
-    public function liste(
-        // Post $post
-        )
+    public function liste()
     {
         //requete pour recup rapport du user actif et pas les autres
         // https://stackoverflow.com/questions/41621486/laravel-inner-join
@@ -38,7 +36,7 @@ class RapportController extends Controller
         return view("rapport", ["rapports" => $rapports, "medico" => $medico]);
     }
 
-    // Rapport de visite affichage données
+    // Afficher les données pour faire un nouveauRapport du visiteur actif
     public function rapportVisite()
     {
         $praticiens = Praticien::all();
@@ -79,7 +77,7 @@ class RapportController extends Controller
         $medoc->OFF_QTE = $request->quantite;
         $medoc->save();
 
-        // FLASH 
+        // Flash alert
         session()->flash('success', 'Rapport ajouté avec succès');
 
         return redirect('/rapport');
@@ -102,14 +100,8 @@ class RapportController extends Controller
         $praticiens = Praticien::join('rapport_visite', 'praticien.PRA_NUM', '=', 'rapport_visite.PRA_NUM')
             ->where('rapport_visite.RAP_NUM', $id)
             ->first();
-
-        // Afficher Visiteur (MATRICULE)
-        // $vis = Auth::user()->VIS_MATRICULE;
         
-
-        // return view("pdf", ["rapports" => $rapports, "medico" => $medico, "praticiens"=> $praticiens]);
         $pdf = PDF::loadView('pdf', ["rapports" => $rapports, "medico" => $medico, "praticiens"=> $praticiens]);
-        
         return $pdf->stream();
     }
 }

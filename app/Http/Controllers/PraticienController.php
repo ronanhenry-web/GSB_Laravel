@@ -8,7 +8,7 @@ use App\Models\Praticien;
 
 class PraticienController extends Controller
 {
-    // Affichage des praticiens dans un tableau
+    // Afficher les praticiens dans un tableau
     public function liste()
     {
         $praticien = Praticien::all()->first();
@@ -17,7 +17,7 @@ class PraticienController extends Controller
         return view("praticien", ["praticien" => $praticien,"praticiens" => $praticiens]);
     }
 
-    // Barre de recherche nom et select ville et fonction
+    // Barre de recherche nom et select ville et select typ code
     public function search(Request $request)
     {
         $res = request()->input('reinitialiser');

@@ -38,7 +38,7 @@
     
     <h2>Rapport de visite</h2>
     
-    {{-- VISUEL VISITEUR --}}
+    {{-- Parti Visiteur --}}
     <div class="visiteur">
         <ul>
             <li>{{Auth::user()->VIS_NOM}} {{Auth::user()->Vis_PRENOM}}</li>
@@ -46,14 +46,14 @@
         </ul>
     </div>
     
-    {{-- VISUEL PRATICIEN --}}
+    {{-- Parti Praticien --}}
     <div class="praticien">
         <u>Praticien :</u> <br>
         {{$praticiens->PRA_NOM}} {{$praticiens->PRA_PRENOM}} <br>
         {{$praticiens->PRA_ADRESSE}} <br> {{$praticiens->PRA_VILLE}} {{$praticiens->PRA_CP}}
     </div>
 
-    {{-- VISUEL BILAN --}}
+    {{-- Parti Bilan --}}
     <div class="bilan">
         <h3>Information du bilan :</h3>
         <p>Le rapport numéro {{$rapports->RAP_NUM}}, il a été fait le 

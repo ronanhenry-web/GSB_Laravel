@@ -14,6 +14,8 @@ class Praticien extends Model
 
     public $table = 'praticien';
     protected $primaryKey = 'PRA_NUM';
+    // Il n'y a pas de created_at et updated_at dans la table
     public $timestamps = false;
+    // Il n'y a pas d'auto increment de l'ID dans la table
     public $incrementing = false;
 }

@@ -7,7 +7,7 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            {{-- Alert champs pas rempli --}}
+            {{-- Alert champs vide --}}
             @if ($errors->any())
             <div class="alert alert-warning shadow-lg mb-12">
                 <div>
@@ -26,6 +26,7 @@
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-md-8 text-center bg-blue-300 pt-8">
+                                {{-- Formulaire pour ajouter un nouveauRapport --}}
                                 <form action="/nouveauRapport" method="post">
                                     @csrf
                                     <div class ="container text-black mx-10">

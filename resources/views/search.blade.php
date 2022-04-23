@@ -1,9 +1,8 @@
 <div class="flex ml-4">   
     <form action="{{ route('research') }}" class="d-flex mr-4">
-        <!-- The button to open modal -->
+        <!-- Ouvrir la modal -->
         <label for="my-modal-3" class="btn modal-button">Filtres</label>
 
-        <!-- Put this part before </body> tag -->
         <input type="checkbox" id="my-modal-3" class="modal-toggle">
         <div class="modal">
             <div class="modal-box relative bg-gray-300">
@@ -32,7 +31,7 @@
                     </label>
                 </div>
 
-                {{-- Select pour rechercher une type --}}
+                {{-- Select pour rechercher un type --}}
                 <div class="form-control py-4">
                     <label class="input-group">
                         <select name="rechercheParType" onChange="form.submit()" class="select select-bordered select-primary text-black">

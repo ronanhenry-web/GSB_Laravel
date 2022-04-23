@@ -10,6 +10,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div class="container flex bg-blue-500 text-center">
+                        {{-- Modification du profil --}}
                         <form action="/profil" class="w-6/12 p-6" method="post">
                             @csrf
                             <div class ="container text-black mx-10 w-6/12 ml-24">
@@ -48,7 +49,6 @@
                         </form>
                         <div class="w-6/12 flex items-center justify-center">
                             <label class="swap swap-flip text-9xl">
-                                <!-- this hidden checkbox controls the state -->
                                 <input type="checkbox"/>
                                 <div class="swap-on">😈</div>
                                 <div class="swap-off">😇</div>

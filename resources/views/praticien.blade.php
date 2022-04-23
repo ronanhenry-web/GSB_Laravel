@@ -12,6 +12,7 @@
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-md-8">
+                                {{-- Filtres --}}
                                 @include('search')
                                 <div class="overflow-x-auto mt-8    ">
                                     <table class="table table-zebra w-full text-black text-center">
@@ -43,6 +44,7 @@
                                                 <td>
                                                     <p>{{ $info->PRA_COEFNOTORIETE }}</p>
                                                 </td>
+                                                {{-- Affichage complet des types code --}}
                                                 <td>
                                                     @if ($info->TYP_CODE == "MH")
                                                         <p>Médecin Hospitalier</p>        

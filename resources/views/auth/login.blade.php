@@ -15,14 +15,14 @@
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
-            <!-- Email Address -->
+            <!-- Email Nom -->
             <div>
                 <x-label class="link" for="nom" :value="__('Nom :')" />
 
                 <x-input id="nom" class="block mt-1 w-full" type="text" placeholder="swiss" name="nom" :value="old('nom')" required autofocus />
             </div>
 
-            <!-- Password -->
+            <!-- Date d'embauche -->
             <div class="mt-4">
                 <x-label class="link" for="date" :value="__('Date :')" />
 

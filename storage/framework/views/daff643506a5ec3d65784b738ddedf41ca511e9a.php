@@ -58,7 +58,7 @@
         <form method="POST" action="<?php echo e(route('login')); ?>">
             <?php echo csrf_field(); ?>
 
-            <!-- Email Address -->
+            <!-- Email Nom -->
             <div>
                 <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.label','data' => ['class' => 'link','for' => 'nom','value' => __('Nom :')]]); ?>
@@ -87,7 +87,7 @@
 <?php endif; ?>
             </div>
 
-            <!-- Password -->
+            <!-- Date d'embauche -->
             <div class="mt-4">
                 <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.label','data' => ['class' => 'link','for' => 'date','value' => __('Date :')]]); ?>

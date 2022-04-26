@@ -1,9 +1,8 @@
 <div class="flex ml-4">   
     <form action="<?php echo e(route('research')); ?>" class="d-flex mr-4">
-        <!-- The button to open modal -->
+        <!-- Ouvrir la modal -->
         <label for="my-modal-3" class="btn modal-button">Filtres</label>
 
-        <!-- Put this part before </body> tag -->
         <input type="checkbox" id="my-modal-3" class="modal-toggle">
         <div class="modal">
             <div class="modal-box relative bg-gray-300">

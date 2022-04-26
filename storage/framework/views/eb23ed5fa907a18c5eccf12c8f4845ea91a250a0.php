@@ -79,6 +79,7 @@
                                                     </ul>
                                                 </td>
                                                 <td>
+                                                    
                                                     <a href = '<?php echo e(route ('pdf', ['id'=>$info->RAP_NUM])); ?>' target="_blank"><img class="pr-4 pl-4 w-24" src="images/4.png"></a>
                                                 </td>
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

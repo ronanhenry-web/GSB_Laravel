@@ -99,6 +99,7 @@
                      <?php $__env->endSlot(); ?>
 
                      <?php $__env->slot('content', null, []); ?> 
+                        
                         <form method="POST" action="<?php echo e(route('profil')); ?>">
                             <?php echo csrf_field(); ?>
                             <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
@@ -116,6 +117,7 @@
 <?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
 <?php endif; ?>
                         </form>
+
                         <!-- Authentication -->
                         <form method="POST" action="<?php echo e(route('logout')); ?>">
                             <?php echo csrf_field(); ?>
@@ -137,7 +139,6 @@
 <?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
 <?php endif; ?>
                         </form>
-                        
                      <?php $__env->endSlot(); ?>
                  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>

@@ -18,6 +18,7 @@
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-md-8">
+                                
                                 <?php echo $__env->make('search', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                                 <div class="overflow-x-auto mt-8    ">
                                     <table class="table table-zebra w-full text-black text-center">
@@ -50,17 +51,7 @@
                                                     <p><?php echo e($info->PRA_COEFNOTORIETE); ?></p>
                                                 </td>
                                                 <td>
-                                                    <?php if($info->TYP_CODE == "MH"): ?>
-                                                        <p>Médecin Hospitalier</p>        
-                                                    <?php elseif($info->TYP_CODE == "MV"): ?>
-                                                        <p>Médecin de Ville</p>    
-                                                    <?php elseif($info->TYP_CODE == "PH"): ?>
-                                                        <p>Pharmacien Hospitalier</p>
-                                                    <?php elseif($info->TYP_CODE == "PO"): ?>
-                                                        <p>Pharmacien Officine</p>
-                                                    <?php elseif($info->TYP_CODE == "PS"): ?>
-                                                        <p>Personnel de santé</p>
-                                                    <?php endif; ?>
+                                                    <p><?php echo e($info->TYP_LIBELLE); ?></p>
                                                 </td>
                                             </tr>
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

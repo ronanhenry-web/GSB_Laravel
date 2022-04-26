@@ -18,6 +18,7 @@
                     <div class="container text-black bg-success">
                         <div class="row justify-content-center">
                             <div class="col-md-8">
+                                
                                 <form method="get" action="<?php echo e(route('rechercheMedoc')); ?>">
                                 <?php echo csrf_field(); ?>
                                     <div class="form-control py-8 mx-12 pl-8">
@@ -32,6 +33,7 @@
                                         </label>
                                     </div>
                                 </form>
+                                
                                 <div class="overflow-x-auto">
                                     <table class="table w-full text-black">
                                         <tbody>

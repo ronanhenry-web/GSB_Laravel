@@ -32,6 +32,7 @@
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-md-8 text-center bg-blue-300 pt-8">
+                                
                                 <form action="/nouveauRapport" method="post">
                                     <?php echo csrf_field(); ?>
                                     <div class ="container text-black mx-10">

@@ -434,12 +434,12 @@
             ),
         ),
         'kitloong/laravel-migrations-generator' => array(
-            'pretty_version' => 'v5.2.0',
-            'version' => '5.2.0.0',
+            'pretty_version' => 'v5.2.1',
+            'version' => '5.2.1.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../kitloong/laravel-migrations-generator',
             'aliases' => array(),
-            'reference' => '434237eeab043c13ab7657b3fd704b43cf5bf39e',
+            'reference' => '52e415d6f6d5f0048f9a29ab4b6d8871b6e5a16c',
             'dev_requirement' => true,
         ),
         'kodova/hamcrest-php' => array(

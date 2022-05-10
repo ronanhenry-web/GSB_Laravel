@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 29 mars 2022 à 16:45
+-- Généré le : mar. 10 mai 2022 à 12:10
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -186,6 +186,39 @@ INSERT INTO `labo` (`LAB_CODE`, `LAB_NOM`, `LAB_CHEFVENTE`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `log`
+--
+
+DROP TABLE IF EXISTS `log`;
+CREATE TABLE IF NOT EXISTS `log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(50) COLLATE utf8_bin NOT NULL,
+  `date` date NOT NULL,
+  `action` varchar(50) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Déchargement des données de la table `log`
+--
+
+INSERT INTO `log` (`id`, `nom`, `date`, `action`) VALUES
+(17, 'swiss', '2010-05-22', 'logout'),
+(16, 'swiss', '2010-05-22', 'connect'),
+(15, 'swiss', '2009-05-22', 'logout'),
+(14, 'swiss', '2009-05-22', 'connect'),
+(13, 'swiss', '2009-05-22', 'logout'),
+(11, 'swiss', '2009-05-22', 'logout'),
+(12, 'swiss', '2009-05-22', 'connect'),
+(18, 'swiss', '2010-05-22', 'connect'),
+(19, 'swiss', '2010-05-22', 'logout'),
+(20, 'Villechalane', '2010-05-22', 'connect'),
+(21, 'Villechalane', '2010-05-22', 'logout'),
+(22, 'swiss', '2010-05-22', 'connect');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `medicament`
 --
 
@@ -248,7 +281,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=117 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=234 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `migrations`
@@ -332,7 +365,124 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (113, '2022_02_18_111410_add_foreign_keys_to_realiser_table', 0),
 (114, '2022_02_18_111410_add_foreign_keys_to_region_table', 0),
 (115, '2022_02_18_111410_add_foreign_keys_to_travailler_table', 0),
-(116, '2022_02_18_111410_add_foreign_keys_to_visiteur_table', 0);
+(116, '2022_02_18_111410_add_foreign_keys_to_visiteur_table', 0),
+(117, '2022_05_09_191400_create_activite_compl_table', 0),
+(118, '2022_05_09_191400_create_composant_table', 0),
+(119, '2022_05_09_191400_create_constituer_table', 0),
+(120, '2022_05_09_191400_create_dosage_table', 0),
+(121, '2022_05_09_191400_create_famille_table', 0),
+(122, '2022_05_09_191400_create_formuler_table', 0),
+(123, '2022_05_09_191400_create_interagir_table', 0),
+(124, '2022_05_09_191400_create_inviter_table', 0),
+(125, '2022_05_09_191400_create_labo_table', 0),
+(126, '2022_05_09_191400_create_log_table', 0),
+(127, '2022_05_09_191400_create_medicament_table', 0),
+(128, '2022_05_09_191400_create_offrir_table', 0),
+(129, '2022_05_09_191400_create_posseder_table', 0),
+(130, '2022_05_09_191400_create_praticien_table', 0),
+(131, '2022_05_09_191400_create_prescrire_table', 0),
+(132, '2022_05_09_191400_create_presentation_table', 0),
+(133, '2022_05_09_191400_create_rapport_visite_table', 0),
+(134, '2022_05_09_191400_create_realiser_table', 0),
+(135, '2022_05_09_191400_create_region_table', 0),
+(136, '2022_05_09_191400_create_secteur_table', 0),
+(137, '2022_05_09_191400_create_specialite_table', 0),
+(138, '2022_05_09_191400_create_switchboard_items_table', 0),
+(139, '2022_05_09_191400_create_travailler_table', 0),
+(140, '2022_05_09_191400_create_type_individu_table', 0),
+(141, '2022_05_09_191400_create_type_praticien_table', 0),
+(142, '2022_05_09_191400_create_visiteur_table', 0),
+(143, '2022_05_09_191401_add_foreign_keys_to_constituer_table', 0),
+(144, '2022_05_09_191401_add_foreign_keys_to_formuler_table', 0),
+(145, '2022_05_09_191401_add_foreign_keys_to_inviter_table', 0),
+(146, '2022_05_09_191401_add_foreign_keys_to_medicament_table', 0),
+(147, '2022_05_09_191401_add_foreign_keys_to_offrir_table', 0),
+(148, '2022_05_09_191401_add_foreign_keys_to_posseder_table', 0),
+(149, '2022_05_09_191401_add_foreign_keys_to_praticien_table', 0),
+(150, '2022_05_09_191401_add_foreign_keys_to_prescrire_table', 0),
+(151, '2022_05_09_191401_add_foreign_keys_to_rapport_visite_table', 0),
+(152, '2022_05_09_191401_add_foreign_keys_to_realiser_table', 0),
+(153, '2022_05_09_191401_add_foreign_keys_to_region_table', 0),
+(154, '2022_05_09_191401_add_foreign_keys_to_travailler_table', 0),
+(155, '2022_05_09_191401_add_foreign_keys_to_visiteur_table', 0),
+(156, '2022_05_09_194939_create_activite_compl_table', 0),
+(157, '2022_05_09_194939_create_composant_table', 0),
+(158, '2022_05_09_194939_create_constituer_table', 0),
+(159, '2022_05_09_194939_create_dosage_table', 0),
+(160, '2022_05_09_194939_create_famille_table', 0),
+(161, '2022_05_09_194939_create_formuler_table', 0),
+(162, '2022_05_09_194939_create_interagir_table', 0),
+(163, '2022_05_09_194939_create_inviter_table', 0),
+(164, '2022_05_09_194939_create_labo_table', 0),
+(165, '2022_05_09_194939_create_log_table', 0),
+(166, '2022_05_09_194939_create_medicament_table', 0),
+(167, '2022_05_09_194939_create_offrir_table', 0),
+(168, '2022_05_09_194939_create_posseder_table', 0),
+(169, '2022_05_09_194939_create_praticien_table', 0),
+(170, '2022_05_09_194939_create_prescrire_table', 0),
+(171, '2022_05_09_194939_create_presentation_table', 0),
+(172, '2022_05_09_194939_create_rapport_visite_table', 0),
+(173, '2022_05_09_194939_create_realiser_table', 0),
+(174, '2022_05_09_194939_create_region_table', 0),
+(175, '2022_05_09_194939_create_secteur_table', 0),
+(176, '2022_05_09_194939_create_specialite_table', 0),
+(177, '2022_05_09_194939_create_switchboard_items_table', 0),
+(178, '2022_05_09_194939_create_travailler_table', 0),
+(179, '2022_05_09_194939_create_type_individu_table', 0),
+(180, '2022_05_09_194939_create_type_praticien_table', 0),
+(181, '2022_05_09_194939_create_visiteur_table', 0),
+(182, '2022_05_09_194940_add_foreign_keys_to_constituer_table', 0),
+(183, '2022_05_09_194940_add_foreign_keys_to_formuler_table', 0),
+(184, '2022_05_09_194940_add_foreign_keys_to_inviter_table', 0),
+(185, '2022_05_09_194940_add_foreign_keys_to_medicament_table', 0),
+(186, '2022_05_09_194940_add_foreign_keys_to_offrir_table', 0),
+(187, '2022_05_09_194940_add_foreign_keys_to_posseder_table', 0),
+(188, '2022_05_09_194940_add_foreign_keys_to_praticien_table', 0),
+(189, '2022_05_09_194940_add_foreign_keys_to_prescrire_table', 0),
+(190, '2022_05_09_194940_add_foreign_keys_to_rapport_visite_table', 0),
+(191, '2022_05_09_194940_add_foreign_keys_to_realiser_table', 0),
+(192, '2022_05_09_194940_add_foreign_keys_to_region_table', 0),
+(193, '2022_05_09_194940_add_foreign_keys_to_travailler_table', 0),
+(194, '2022_05_09_194940_add_foreign_keys_to_visiteur_table', 0),
+(195, '2022_05_09_202119_create_activite_compl_table', 0),
+(196, '2022_05_09_202119_create_composant_table', 0),
+(197, '2022_05_09_202119_create_constituer_table', 0),
+(198, '2022_05_09_202119_create_dosage_table', 0),
+(199, '2022_05_09_202119_create_famille_table', 0),
+(200, '2022_05_09_202119_create_formuler_table', 0),
+(201, '2022_05_09_202119_create_interagir_table', 0),
+(202, '2022_05_09_202119_create_inviter_table', 0),
+(203, '2022_05_09_202119_create_labo_table', 0),
+(204, '2022_05_09_202119_create_log_table', 0),
+(205, '2022_05_09_202119_create_medicament_table', 0),
+(206, '2022_05_09_202119_create_offrir_table', 0),
+(207, '2022_05_09_202119_create_posseder_table', 0),
+(208, '2022_05_09_202119_create_praticien_table', 0),
+(209, '2022_05_09_202119_create_prescrire_table', 0),
+(210, '2022_05_09_202119_create_presentation_table', 0),
+(211, '2022_05_09_202119_create_rapport_visite_table', 0),
+(212, '2022_05_09_202119_create_realiser_table', 0),
+(213, '2022_05_09_202119_create_region_table', 0),
+(214, '2022_05_09_202119_create_secteur_table', 0),
+(215, '2022_05_09_202119_create_specialite_table', 0),
+(216, '2022_05_09_202119_create_switchboard_items_table', 0),
+(217, '2022_05_09_202119_create_travailler_table', 0),
+(218, '2022_05_09_202119_create_type_individu_table', 0),
+(219, '2022_05_09_202119_create_type_praticien_table', 0),
+(220, '2022_05_09_202119_create_visiteur_table', 0),
+(221, '2022_05_09_202120_add_foreign_keys_to_constituer_table', 0),
+(222, '2022_05_09_202120_add_foreign_keys_to_formuler_table', 0),
+(223, '2022_05_09_202120_add_foreign_keys_to_inviter_table', 0),
+(224, '2022_05_09_202120_add_foreign_keys_to_medicament_table', 0),
+(225, '2022_05_09_202120_add_foreign_keys_to_offrir_table', 0),
+(226, '2022_05_09_202120_add_foreign_keys_to_posseder_table', 0),
+(227, '2022_05_09_202120_add_foreign_keys_to_praticien_table', 0),
+(228, '2022_05_09_202120_add_foreign_keys_to_prescrire_table', 0),
+(229, '2022_05_09_202120_add_foreign_keys_to_rapport_visite_table', 0),
+(230, '2022_05_09_202120_add_foreign_keys_to_realiser_table', 0),
+(231, '2022_05_09_202120_add_foreign_keys_to_region_table', 0),
+(232, '2022_05_09_202120_add_foreign_keys_to_travailler_table', 0),
+(233, '2022_05_09_202120_add_foreign_keys_to_visiteur_table', 0);
 
 -- --------------------------------------------------------
 
@@ -356,8 +506,13 @@ CREATE TABLE IF NOT EXISTS `offrir` (
 --
 
 INSERT INTO `offrir` (`VIS_MATRICULE`, `RAP_NUM`, `MED_DEPOTLEGAL`, `OFF_QTE`) VALUES
-('zzz', 22, 'EQUILARX6', 2),
-('zzz', 23, 'CARTION6', 1);
+('a131', 57, 'DEPRIL9', 60),
+('a131', 58, 'DIMIRTAM6', 15),
+('a131', 59, 'DORNOM8', 30),
+('zzz', 53, 'EQUILARX6', 10),
+('zzz', 54, 'DORNOM8', 4),
+('zzz', 55, 'DOLRIL7', 15),
+('zzz', 56, 'JOVAI8', 1);
 
 -- --------------------------------------------------------
 
@@ -374,6 +529,17 @@ CREATE TABLE IF NOT EXISTS `posseder` (
   PRIMARY KEY (`PRA_NUM`,`SPE_CODE`),
   KEY `SPE_CODE` (`SPE_CODE`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `posseder`
+--
+
+INSERT INTO `posseder` (`PRA_NUM`, `SPE_CODE`, `POS_DIPLOME`, `POS_COEFPRESCRIPTION`) VALUES
+(1, 'BM', 'BAC', '66'),
+(6, 'AMV', 'BREVET', '25'),
+(11, 'CMF', 'DOCTORAT', '144'),
+(63, 'CAC', 'BTS MCO', '200'),
+(82, 'ARC', 'BTS SIO', '455');
 
 -- --------------------------------------------------------
 
@@ -534,15 +700,20 @@ CREATE TABLE IF NOT EXISTS `rapport_visite` (
   PRIMARY KEY (`RAP_NUM`),
   KEY `VIS_MATRICULE` (`VIS_MATRICULE`),
   KEY `PRA_NUM` (`PRA_NUM`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `rapport_visite`
 --
 
 INSERT INTO `rapport_visite` (`VIS_MATRICULE`, `RAP_NUM`, `PRA_NUM`, `RAP_DATE`, `RAP_BILAN`, `RAP_MOTIF`) VALUES
-('zzz', 22, 1, '2022-03-29T18:39', 'acné', 'apparition de bouton dans le dos'),
-('zzz', 23, 10, '2022-03-16T18:41', 'douleur à la tête', 'cancer du crâne');
+('zzz', 53, 2, '2022-05-08T17:16', 'syndrome des jambes sans repos', 'la personne ne sent plus sa jambe droite'),
+('zzz', 54, 11, '2022-05-10T17:22', 'RRRR', NULL),
+('zzz', 55, 7, '2022-05-12T20:45', 'maladie des pieds', 'maladie de sévère en dessous du pied'),
+('zzz', 56, 4, '2022-05-14T22:36', 'ddddd', 'ddddd'),
+('a131', 57, 2, '2022-04-29T10:14', 'pppp', 'aaaaaaa'),
+('a131', 58, 11, '2022-05-12T10:14', 'pppp', 'maladie de sévère en dessous du pied'),
+('a131', 59, 7, '2022-05-13T10:15', 'dsqdqsdq', 'aaaaaaa');
 
 -- --------------------------------------------------------
 
@@ -955,7 +1126,7 @@ INSERT INTO `visiteur` (`VIS_MATRICULE`, `VIS_NOM`, `Vis_PRENOM`, `VIS_ADRESSE`,
 ('t47', 'Tiphagne', 'Patrick', '7B r Gay Lussac', '62000', 'ARRAS', '1997-08-29 00:00:00', '', 'SW'),
 ('t55', 'Tréhet', 'Alain', '7D chem Barral', '12000', 'RODEZ', '1994-11-29 00:00:00', '', 'SW'),
 ('t60', 'Tusseau', 'Josselin', '63 r Bon Repos', '28000', 'CHARTRES', '1991-03-29 00:00:00', '', 'GY'),
-('zzz', 'swiss', 'bourdin', '18 rue des choux', '35600', 'Redon', '2003-06-18 00:00:00', '', 'BC');
+('zzz', 'swiss', 'bourdin', '18 rue des fleurs', '35600', 'Redon', '2003-06-18 00:00:00', '', 'BC');
 
 --
 -- Contraintes pour les tables déchargées

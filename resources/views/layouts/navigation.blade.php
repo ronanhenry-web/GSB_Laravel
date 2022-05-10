@@ -9,13 +9,13 @@
                         <img src="https://api.lorem.space/image/face?hash=28212" />
                     </div>
                 </div>
+                
+                <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Histoire') }}
                     </x-nav-link>
                 </div>
-
-                <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('rapport')" :active="request()->routeIs('rapport')">
                         {{ __('Rapport') }}
@@ -31,7 +31,11 @@
                         {{ __('Médicament') }}
                     </x-nav-link>
                 </div>
-                
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('logsInfo')" :active="request()->routeIs('logsInfo')">
+                        {{ __('Logs') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->
@@ -61,7 +65,6 @@
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">

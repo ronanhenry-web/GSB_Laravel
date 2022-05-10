@@ -24,6 +24,7 @@
                     </div>
                 </div>
             <?php endif; ?>
+
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div class="container">
@@ -31,6 +32,8 @@
                             <div class="col-md-8">
                                 <div class="overflow-x-auto">
                                     <button onclick="window.location.href = '/nouveauRapport';"class="btn btn-primary mb-8">nouveau Rapport</button>
+                                    <button onclick="window.location.href = '/deleteRapport';"class="btn btn-danger mb-8 ml-2">supprimer Rapport</button>
+                                    <button onclick="window.location.href = '/updateRapportTable';"class="btn btn-warning mb-8 ml-2">modifier Rapport</button>
                                     <table class="table table-zebra w-full text-black text-center">
                                         <thead class="text-white">
                                             <tr>

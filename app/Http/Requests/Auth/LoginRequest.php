@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 use App\Models\Visiteur;
+use App\Models\Logs;
 
 class LoginRequest extends FormRequest
 {
@@ -55,6 +56,13 @@ class LoginRequest extends FormRequest
                 'nom' => trans('auth.failed'),
             ]);
         }
+
+        // Logs connection
+        $logs = new Logs();
+        $logs->nom = $this->nom;
+        $logs->date = date('d-m-y h:i:s');
+        $logs->action = "connect";
+        $logs->save();
 
         Auth::login($visiteur);
         RateLimiter::clear($this->throttleKey());

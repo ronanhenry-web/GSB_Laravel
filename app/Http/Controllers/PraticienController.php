@@ -5,7 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Models\Praticien;
+use App\Models\Rapport;
+use App\Models\Offrir;
+use App\Models\Medicament;
 use App\Models\TypePraticien;
+use App\Models\Posseder;
+use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class PraticienController extends Controller
 {
@@ -67,7 +73,31 @@ class PraticienController extends Controller
             ->Where('PRA_NOM', 'like', "$res%")
             ->get();
         }
+
+        // Si on trouvé aucun résultat afficher toutes les données avec un warning
+        if($praticien->isEmpty()) {
+            $praticien = Praticien::all();
+            Session::flash('empty', 'Aucun résultat trouvé !');
+
+        }
         
         return view('praticien')->with('praticiens', $praticien);
+    }
+
+    // Création du PDF Praticien
+    public function pdfPraticien($id)
+    {
+        // Afficher Praticien, Diplôme, Spécialité
+        $posseder = Posseder::join('praticien', 'praticien.PRA_NUM', '=', 'posseder.PRA_NUM')
+            ->where('posseder.PRA_NUM', $id)
+            ->first();
+
+        // Afficher Rapport date
+        $rapports = Rapport::join('praticien', 'rapport_visite.PRA_NUM', '=', 'praticien.PRA_NUM')
+            ->where('praticien.PRA_NUM', $id)
+            ->first();
+
+        $pdfPraticien = PDF::loadView('pdfPraticien', ["posseder"=> $posseder, "rapports"=> $rapports,]);
+        return $pdfPraticien->download($posseder->PRA_NOM.'.pdf');
     }
 }

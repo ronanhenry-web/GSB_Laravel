@@ -73,9 +73,11 @@ class MigrateGenerateCommand extends Command
      */
     public function handle()
     {
-        $setting = $this->setup($this->connection = $this->option('connection') ?: Config::get('database.default'));
+        $this->setup(
+            $this->connection = $this->option('connection') ?: Config::get('database.default')
+        );
 
-        $this->schema = new Schema($setting);
+        $this->schema = app(Schema::class);
         $this->schema->initialize();
 
         $this->info('Using connection: '.$this->connection."\n");
@@ -98,7 +100,7 @@ class MigrateGenerateCommand extends Command
      *
      * @throws \Doctrine\DBAL\Exception
      */
-    protected function setup(string $connection): MigrationsGeneratorSetting
+    protected function setup(string $connection)
     {
         $setting = app(MigrationsGeneratorSetting::class);
         $setting->setup($connection);
@@ -130,8 +132,6 @@ class MigrateGenerateCommand extends Command
         $setting->setFkFilename(
             $this->option('fk-filename') ?? Config::get('generators.config.filename_pattern.foreign_key')
         );
-
-        return $setting;
     }
 
     /**
@@ -281,9 +281,11 @@ class MigrateGenerateCommand extends Command
 
         $this->generateTables($tables);
 
-        $this->info("\nSetting up Views Migrations");
+        if (!$this->option('skip-views')) {
+            $this->info("\nSetting up Views Migrations");
 
-        $this->generateViews($views);
+            $this->generateViews($views);
+        }
 
         $this->info("\nSetting up Foreign Key Migrations");
 

@@ -21,6 +21,10 @@ class ProfilController extends Controller
     {
         $request->validate([
             "nom"=>["required", "string"],
+            "prenom"=>["required", "string"],
+            "adresse"=>["required", "string"],
+            "ville"=>["required", "string"],
+            "cp"=>["required", "int"]
         ]);
         $profil = Visiteur::find(auth()->id());
         $profil->VIS_NOM = $request->nom;

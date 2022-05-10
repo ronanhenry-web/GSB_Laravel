@@ -7,6 +7,7 @@ use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Logs;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -43,6 +44,14 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request)
     {
+        
+        // Logs déconnexion
+        $logs = new Logs();
+        $logs->nom = auth()->user()->VIS_NOM;
+        $logs->date = date('d-m-y h:i:s');
+        $logs->action = "logout";
+        $logs->save();
+
         Auth::guard('web')->logout();
 
         $request->session()->invalidate();

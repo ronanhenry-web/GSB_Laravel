@@ -27,16 +27,27 @@ require __DIR__.'/auth.php';
 Route::middleware(['auth'])->group(function () {
     Route::get('/rapport',[App\Http\Controllers\RapportController::class,'liste'])->name('rapport');
     Route::get('/rapport/{id}',[App\Http\Controllers\RapportController::class,'pdf'])->name('pdf');
-    
+
     Route::post('/nouveauRapport',[App\Http\Controllers\RapportController::class,'store'])->name('nouveauRapport');
     Route::get('/nouveauRapport',[App\Http\Controllers\RapportController::class,'rapportVisite'])->name('rapportVisite');
     
+    Route::get('/deleteRapport',[App\Http\Controllers\RapportController::class,'rapportDeleteInfo'])->name('deleteRapport');
+    Route::get('/deleteRapport/{id}',[App\Http\Controllers\RapportController::class,'destroy'])->name('delete');
+
+    Route::get('/updateRapportTable',[App\Http\Controllers\RapportController::class,'rapportUpdateInfo'])->name('updateRapport');
+    Route::post('/updateRapport/{id}',[App\Http\Controllers\RapportController::class,'edit'])->name('updateInfo');
+    Route::get('/updateRapport/{id}',[App\Http\Controllers\RapportController::class,'updateView'])->name('update');
+
     Route::get('/medoc',[App\Http\Controllers\MedocController::class,'liste'])->name('medoc');
     Route::get('/medocById',[App\Http\Controllers\MedocController::class,'getIdMedoc'])->name('rechercheMedoc');
     
     Route::get('/praticien',[App\Http\Controllers\PraticienController::class,'liste'])->name('praticien');
     Route::get('/searchPraticien',[App\Http\Controllers\PraticienController::class,'search'])->name('research');
+    Route::get('/praticien/{id}',[App\Http\Controllers\PraticienController::class,'pdfPraticien'])->name('pdfPraticien');
 
-    Route::post('/profil',[App\Http\Controllers\ProfilController::class,'storeProfil'])->name('profil');
+    
     Route::get('/profil',[App\Http\Controllers\ProfilController::class,'liste'])->name('profilVisiteur');
+    Route::post('/profil',[App\Http\Controllers\ProfilController::class,'storeProfil'])->name('profil');
+
+    Route::get('/logs',[App\Http\Controllers\LogsController::class,'liste'])->name('logsInfo');
 });

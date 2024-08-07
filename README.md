@@ -1,5 +1,3 @@
-Faire un site pour les praticiens et les clients
-
 # Projet GSB
 
 Faire un site pour les praticiens et les clients

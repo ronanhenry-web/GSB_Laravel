@@ -1,20 +1,20 @@
-# Projet GSB
+# GSB Project
 
-Faire un site pour les praticiens et les clients
+Building a website for practitioners and clients
 
-## Démarrer
+## Getting Started
 
-Le projet a été créé sous VSCode, pour le démarrer suivre les étapes suivantes.
+The project was created using VSCode. To get it running, follow these steps :
 
-- Cloner le projet
-- Importer la BDD gsb.sql
-- Copier cette commande pour lancer le projet
+- Clone the project
+- Import the gsb.sql database
+- Run the following command to start the project :
 ```bash
 php artisan serve
 ```
-- Mot de passe renseigné dans le placeholder 😊
+- The password is provided in the placeholder 😊
 
-## Sources & Outils
+## Sources & Tools
 
 <a href="https://laravel.com/" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white"/> </a>
 
